@@ -18,15 +18,18 @@ answers = ["yes", "no", "probably", "probably not", "maybe", "maybe some day", "
 
 @client.event
 async def on_ready():
-	print("Logged in as ");
-	print(client.user.name);
-	print(client.user.id);
-	print("--------");
+    print('Logged in as');
+    print(client.user.name);
+    print(client.user.id);
+    print('------');
 
 @client.event
 async def on_message(message):
 	if message.content.startswith("!conch"):
 		conch_answer = sample(answers, 1);
-		await client.send_message(message.channel, "\:shell:" + conch_answer);
+		await client.send_message(message.channel, "\:shell:" + str(conch_answer));
 
-client.run('');
+	if message.content.startswith("!cmdhelp"):
+		await client.send_message(message.channel, "Commands: !conch");
+
+client.run('MzY4MjgwNzA1MzgzMzk5NDI0.DMJyoQ.dnm19X8QZ7Ibl_5RD-a1cAQT9Ms');
