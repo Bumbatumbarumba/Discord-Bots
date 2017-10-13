@@ -1,16 +1,15 @@
 """
-Magic conch discord bot
+Multi-Purpose discord bot
 Created by Bartosz Kosakowski
-Idea credit goes to my friend Caroline 
 
-Once the bot is on the discord server, ask it a question by 
-calling "!magic_conch, <question>". It will provide respond
-with "yes", "no", "probably", "probably not", "maybe", or 
-"maybe some day" and other bs.
+A multi-purpose bot that initially started out as a Magic Conch bot
+Magic Conch idea goes to my friend Caroline
 """
 
 import discord;
 import asyncio;
+import pickle;
+import os;
 from random import *;
 
 client = discord.Client();
@@ -25,12 +24,21 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+	"""
+	=-=-= MAGIC CONCH BOT =-=-=
+	Once the bot is on the discord server, ask it a question by 
+	calling !conch, <question>". It will provide respond
+	with "yes", "no", "probably", "probably not", "maybe", or 
+	"maybe some day" and other stuff maybe.
+	"""
 	if message.content.startswith("!conch"):
 		conch_answer = sample(answers, 1);
 		await client.send_message(message.channel, ":shell: " + str(conch_answer));
 
+	#Type !cmdhelp into the chat to get a list of commands
 	if message.content.startswith("!cmdhelp"):
-		await client.send_message(message.channel, """----COMMANDS LIST----\n
+		await client.send_message(message.channel, """
+			----COMMANDS LIST----\n
 			General:\n
 			\t!whomst - if you want to more about the bot\n
 			Magic Conch:\n
@@ -46,5 +54,20 @@ async def on_message(message):
 			\t WORK IN PROGRESS, DOES NOT WORK\n
 			\t!quote <quote> - did someone say something dumb? Immortalize it!\n
 			\t!randquote - pulls a random quote that was added""");
+
+	if message.content.startswith("!whomst"):
+		await client.send_message(message.channel, """
+			A multi-purpose bot created by Bartosz Kosakowski\n
+			Initially started off as a Magic Conch bot, now does\n
+			a whole bunch of other things! Type !cmdhelp""");
+
+	"""
+	=-=-= GUCCI POINTS =-=-=
+	Give a user Gucci Points for whatever reason you want
+	"""
+	if message.content.startswith("!gpwhatis"):
+		await client.send_message(message.channel, "Did someone do something cool? Give them Gucci Points!\nDid they do something dumb? Take them away!");
+	# if message.content.startswith("!gpadd"):
+	# 	await client.send_message(message.channel, )
 
 client.run('MzY4MjgwNzA1MzgzMzk5NDI0.DMJyoQ.dnm19X8QZ7Ibl_5RD-a1cAQT9Ms');
