@@ -10,6 +10,7 @@ import discord;
 import asyncio;
 import pickle;
 import os;
+import datetime;
 from random import *;
 
 client = discord.Client();
@@ -41,6 +42,8 @@ async def on_message(message):
 			----COMMANDS LIST----\n
 			General:\n
 			\t!whomst - if you want to more about the bot\n
+			Big Ben:\n
+			\t!bigben - gives the current hour in BONGS 
 			Magic Conch:\n
 			\t!conch <question> - ask the magic conch a question\n
 			Gucci Points:\n
@@ -69,5 +72,14 @@ async def on_message(message):
 		await client.send_message(message.channel, "Did someone do something cool? Give them Gucci Points!\nDid they do something dumb? Take them away!");
 	# if message.content.startswith("!gpadd"):
 	# 	await client.send_message(message.channel, )
+
+	#BIG BEN
+	#returns the time in BONGS (and BINGS?)
+	if message.content.startswith("!bigben"):
+		now = datetime.datetime.now();
+		hours = "";
+		for i in range(now.hour):
+			hours += " BONG";
+		await client.send_message(message.channel, ":clock:" + hours);
 
 client.run('MzY4MjgwNzA1MzgzMzk5NDI0.DMJyoQ.dnm19X8QZ7Ibl_5RD-a1cAQT9Ms');
