@@ -71,9 +71,9 @@ async def on_message(message):
 	#BIG BEN
 	#Prints the time in BONGS (and BINGS?)
 	if message.content.startswith("!bigben"):
-		now = datetime.datetime.now();
 		hours = "";
-		for i in range(now.hour):
+		int_time = int("%s" % (datetime.datetime.now().hour));
+		for i in range(int_time):
 			hours += " BONG";
 		await client.send_message(message.channel, ":clock:" + hours);
 
@@ -83,7 +83,7 @@ async def on_message(message):
 		global votetopic
 		votetopic = (message.content[11:]);
 		await client.send_message(message.channel, votetopic + " ");
-		
+	#Adds a poll option
 	if message.content.startswith("!addoption"):
 		print(votetopic);
 		if not votetopic:
