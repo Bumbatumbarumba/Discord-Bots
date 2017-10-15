@@ -33,11 +33,8 @@ async def on_message(message):
 	#converts it to 12 hour format, and prints the hour in BONGS 
 	if message.content.startswith("!bigben"):
 		hours = "";
-		int_time = int("%s" % (datetime.datetime.now().hour));
-		if int_time > 12:
-			int_time = int_time-12;
-			
-		for i in range(int_time):
+		current_time = datetime.datetime.now().hour;
+		for i in range(current_time):
 			hours += " BONG";
 		await client.send_message(message.channel, ":clock:" + hours);
 
