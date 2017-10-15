@@ -1,2 +1,2 @@
-# discord_magic_conch
-A discord bot that performs several functions; type !whomst or !cmdhelp to get started.
+# Discord-Bots
+A collection of bots that I wrote that do random things.
