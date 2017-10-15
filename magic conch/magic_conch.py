@@ -7,7 +7,7 @@ Idea credit goes to my friend Caroline
 """
 
 #important link for personal reference https://discordapp.com/oauth2/authorize?&client_id=[CLIENT_ID]&scope=bot&permissions=0
-#[CLIENT_ID] is supposed to be whatever code is on the dev page
+#[CLIENT_ID] is supposed to be whatever code is on the dev page.
 import discord;
 import asyncio;
 import pickle;
@@ -36,12 +36,15 @@ async def on_ready():
 async def on_message(message):
 	#if the user calls the bot with !chonch, then it randomly picks an answer
 	if message.content.startswith("!conch"):
-		if "will" in message.content:
-			conch_answer = sample(temporal_answers, 1)
-			await client.send_message(message.channel, ":shell: " + str(conch_answer));
+		if message.content[6:] is "" or message.content[6:] is " ":
+			await client.send_message(message.channel, ":shell: please ask me a question");
 		else:
-			conch_answer = sample(yn_answers, 1);
-			await client.send_message(message.channel, ":shell: " + str(conch_answer));
+			if "will" in message.content:
+				conch_answer = sample(temporal_answers, 1)
+				await client.send_message(message.channel, ":shell: " + str(conch_answer));
+			else:
+				conch_answer = sample(yn_answers, 1);
+				await client.send_message(message.channel, ":shell: " + str(conch_answer));
 
 	#Type @conch to get a quick blurb of info about the bot
 	if message.content.startswith("<@368280705383399424>"):
