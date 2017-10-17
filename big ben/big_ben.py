@@ -38,7 +38,7 @@ async def on_message(message):
 			hours += " BONG";
 		await client.send_message(message.channel, ":clock:" + hours);
 
-	#Type @Magic Conch to get a quick blurb of info about the bot
+	#Type @Big Ben to get a quick blurb of info about the bot
 	if message.content.startswith("<@369196453702270976>"):
 		await client.send_message(message.channel, "Created by Bartosz Kosakowski. Type !bigben to get the current time in BONGS");
 
