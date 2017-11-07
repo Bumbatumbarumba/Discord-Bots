@@ -50,4 +50,4 @@ async def on_message(message):
 	if message.content.startswith("<@368280705383399424>"):
 		await client.send_message(message.channel, "Created by Bartosz Kosakowski. Simply emulates the maic conch from Spongebob Squarepants. Type !conch <question>.");
 
-client.run('MzY4MjgwNzA1MzgzMzk5NDI0.DMJyoQ.dnm19X8QZ7Ibl_5RD-a1cAQT9Ms');
+client.run('SECRET');

@@ -69,4 +69,4 @@ async def on_message(message):
 #     player = await vc.create_ytdl_player(url)
 #     player.start()
 
-client.run('MzcxNTI1MjIxOTIxOTgwNDM2.DM26Jg.x-PrekFnHHUgf4fdj78-IE-eafE');
+client.run('SECRET');

@@ -42,4 +42,4 @@ async def on_message(message):
 	if message.content.startswith("<@369196453702270976>"):
 		await client.send_message(message.channel, "Created by Bartosz Kosakowski. Type !bigben to get the current time in BONGS");
 
-client.run('MzY5MTk2NDUzNzAyMjcwOTc2.DMVAjw.Qjxbp9T3AyhE5O6jpWxWrjwjO3w');
+client.run('SECRET');
