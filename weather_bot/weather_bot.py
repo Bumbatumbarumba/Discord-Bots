@@ -19,6 +19,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-	print("eeeee");
+	if message.content.startswith("!weather"):
+		print("fuk u");
 
-client.run('SECRET');
+#reads in the secret token for the bot to log in with
+f = open("bottoken.txt","r");
+secret = f.read();
+f.close();
+
+client.run(secret);
